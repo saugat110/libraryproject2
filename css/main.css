@@ -1,0 +1,99 @@
+:root{
+--topbar-height:77px;
+--sidebar-width:157px;
+}
+
+body{
+    margin:0px;
+    height:100vh;
+    position: relative;
+}
+
+.topbar{
+    box-sizing: border-box;
+    height:77px;
+    background-color: rgb(1, 217, 250);
+    border:1px solid transparent;
+    position: relative;
+}
+
+.topbar #title{
+    width:fit-content;
+    margin:0px;
+    color:white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 27px;
+    padding-left:23px;
+    margin-top: calc( (var(--topbar-height) - 31.88px) / 2);
+}
+
+.sidebar{
+    box-sizing: border-box;
+    position: fixed;
+    width:157px;
+    height: calc(100vh - var(--topbar-height));
+    /* border:2px solid black; */
+    top: var(--topbar-height);
+    background-color: rgb(172, 172, 172);
+    overflow-y:scroll;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+}
+
+.content{
+    box-sizing: border-box;
+    position: fixed;
+    width: calc(100vw - var(--sidebar-width));
+    left: var(--sidebar-width);
+    top: var(--topbar-height);
+    /* border:2px solid red; */
+    height:calc(100vh - var(--topbar-height));
+    padding:10px 21px;
+}
+
+.sidebar a, #manage_admin{
+    display: block;
+    /* width: fit-content; */
+    margin:0px;
+    text-decoration: none;
+    padding:10px 0px;
+    padding-left: calc( (var(--sidebar-width) - 115.64px ) / 2 );
+    margin-top:30px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.topbar .info{
+    width: fit-content;
+    margin:0px;
+    position: absolute;
+    right:31px;
+    top:calc( (var(--topbar-height) - 18.48px) / 2 );
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    color: white;
+}
+
+#email{
+    box-sizing: border-box;
+    padding-right: 11px;
+    border-right: 5px solid white;
+}
+
+.info #logout a{
+    text-decoration: none;
+    color:white;
+}
+
+.sidebar a:hover{
+    background-color: rgb(120, 120, 120);
+    transition: all 0.1s ease-in-out;
+}
+
+.topbar .info #logout:hover{
+    text-decoration: underline;
+    border-right:5px solid white;
+    padding-right: 3px;
+    transition:all 0.1s ease-out;
+}
+
