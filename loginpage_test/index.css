@@ -1,0 +1,155 @@
+body {
+    background-color: rgba(228, 228, 228, 0.634);
+    width: 1250px;
+    height: 700x;
+    position: relative;
+}
+
+div {
+    float: left;
+}
+
+.background {
+    margin: 80px 70px;
+    width: 1100px;
+    height: 400px;
+    background-image: url(hero.jpg);
+    background-size: cover;
+    background-position: 30% 74%;
+    border-radius: 20px;
+    position: absolute;   /*imp*/
+    z-index: 1;
+}
+
+.login {
+    margin: 10px 440px;
+    width: 400px;
+    height: 550px;
+    background: white;
+    border-radius: 20px;
+    border-color: orange;
+    position: relative;
+    z-index: 24;
+}
+
+.image {
+    width: 150px;
+    height: 100px;
+    margin-top:5px;
+}
+
+.image>img {
+    width: 100%;
+    height: 100%;
+}
+
+.library {
+    width: 240px;
+    
+    height: 100px;
+}
+
+.library>h1 {
+    text-transform: uppercase;
+    font-size: 1.25rem;
+    color: royalblue;
+    font-family: times new roman;
+    font-weight: bolder;
+}
+
+.header {
+    color: red;
+    font-size: 2rem;
+    font-family: 'Franklin Gothic Medium';
+}
+
+#f2{
+    display: none;
+}
+
+#button1{
+    background-color: rgb(69, 206, 69);
+    color:white;
+    width: fit-content;
+    padding:10px 20px;
+    position: absolute;
+    top:10px;
+    right:30px;
+    cursor:pointer;
+    border:0px;
+    border-radius:7px;
+}
+
+input[type="email"], input[type="password"],input[type="text"]{
+    padding-left:10px;
+    width:345px;
+    height:40px;
+    margin-left:20px;
+    border-radius: 3px;
+    border-width:1px;
+}
+
+input[type="email"]{
+    margin-bottom:30px;
+}
+
+input[type="submit"], input[type="reset"]{
+    padding:10px 29px;
+    background-color:rgb(4, 224, 4);
+    color:white;
+    border:0px;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-left:91px;
+}
+
+input[type="reset"]{
+    background-color: rgb(171, 2, 2);
+    margin-left:13px;
+    /* margin-top: 63px; */
+}
+
+p#form_title{
+margin-top:140px;
+font-family: 'Times New Roman', Times, serif;
+margin-left: 17px;
+}
+
+#span1{
+    color:red;
+    font-size: 40px;
+}
+
+#span2{
+    color:blue;
+    font-size: 17px;
+    margin-left: 2px;
+}
+
+input:focus{
+    outline: none;
+    /* border:3px solid red; */
+}
+
+#f1 input[type="email"]{
+    border-color:red;
+}
+#f1 input[type="password"]{
+    border-color:blue;
+}
+
+#f2 input[type="email"]{
+    border-color:blue;
+}
+
+#f2 input[type="password"]{
+    border-color: red;
+}
+
+label{
+    color:gray;
+}
+input[type="checkbox"]{
+    margin-left: 20px;
+    margin-top:11px;
+}
