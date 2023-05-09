@@ -9,38 +9,12 @@
         $stmt = $db -> prepare($query);
         $stmt -> execute([':id' => $_POST['category_id']]);
         header('Location:../dboard/category.php');
-    }
-
     
+    }else if (isset($_POST['delete_author'])){
+        // echo $_POST['a_id'];
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-?>
+        $query = "delete from author where auth_id = :id";
+        $stmt = $db -> prepare($query);
+        $stmt -> execute([':id' => $_POST['author_id']]);
+        header('Location:../dboard/author.php');
+    }

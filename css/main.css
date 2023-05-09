@@ -102,3 +102,7 @@ body{
     background-color: rgb(120, 120, 120) !important;
     font-weight: bold;
 }
+
+.active:hover{
+    background-color: rgb(103, 102, 102) !important;
+}
