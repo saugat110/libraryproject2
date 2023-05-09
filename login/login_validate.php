@@ -57,7 +57,7 @@ if(isset($_POST['sl'])){   //for student form
           $db=null;
           header("Location:../index.php?upnm=$e_message");
    }else if($student_found == 1 && $student_password_matched == 1){
-          unset($_SESSION['email'], $_SESSION['password'], $_SESSION['student_pword_reset_id'], $_SESSION['student_pword_reset_email'], $_SESSION['student_pword_reset_name']);
+          unset($_SESSION['email'], $_SESSION['password'], $_SESSION['student_pword_reset_id'], $_SESSION['student_pword_reset_email'], $_SESSION['student_pword_reset_name'],$_SESSION['visited_forgot_password']);
           $db=null;
           $_SESSION['student_id']=$single['s_id'];
        //    echo $_SESSION['student_id'];

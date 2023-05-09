@@ -9,6 +9,7 @@ if(isset($_SESSION['student_id'])){
     header('Location:login/user_dash.php');
 }
 
+
 //for student credential error
 $user_not_found=(isset($_GET['unf']))?$_GET['unf']:'';
 $user_password_not_matched=(isset($_GET['upnm']))?$_GET['upnm']:'';

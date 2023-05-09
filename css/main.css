@@ -49,6 +49,7 @@ body{
     /* border:2px solid red; */
     height:calc(100vh - var(--topbar-height));
     padding:10px 21px;
+    overflow-y: scroll;
 }
 
 .sidebar a, #manage_admin{
@@ -97,3 +98,7 @@ body{
     transition:all 0.1s ease-out;
 }
 
+.active{
+    background-color: rgb(120, 120, 120) !important;
+    font-weight: bold;
+}

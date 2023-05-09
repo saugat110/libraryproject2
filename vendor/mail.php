@@ -40,7 +40,7 @@ try {
     $mail->Subject = 'Verification Code';
     $mail->Body    = "<p style='font-size:20px;margin-bottom:3px;'>Hi, $name</p>
     <p style='margin-bottom:3px;'>Use this code to reset ur password</p>
-    <span style='color:red;font-size:40px;background-color:black;padding:10px 20px;'>$vcode</span><br>
+    <span style='color:red;font-size:40px;background-color:black;padding:10px 20px;border-radius:13px;'>$vcode</span><br>
     <p style='margin-top:50px;font-size:30px;margin-bottom:0px;'>Thank you</p>
     <p style='font-size:20px;margin-top:0px; margin-bottom:5px;'>Regards,</p>
     <p>Reliance LMS, Team</p>

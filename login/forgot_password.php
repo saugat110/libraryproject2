@@ -54,7 +54,7 @@ if( (isset($_SESSION['refered_from_login_validate']) || isset($_SESSION['refered
     // }
 }else{
     // header('Location:index.php');
-    header("Location:../error/error.php");
+    // header("Location:../error/error.php");
 }
 
 ?>
