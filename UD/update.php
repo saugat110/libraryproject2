@@ -26,6 +26,18 @@
         header('Location:../dboard/author.php');
 
 
+    }else if(isset($_POST['update_rack_form'])){  
+        $id = $_POST['rack_id'];
+        $name = $_POST['rack_name'];
+
+        // echo $id;
+        // echo $name;
+
+        $query = "update rack set Name = :name where rack_id = :id";
+        $stmt = $db -> prepare($query);
+        $stmt -> execute([':name' => $name, ':id' => $id]);
+        header('Location:../dboard/rack.php');
+
     }
 
 

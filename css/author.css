@@ -41,10 +41,15 @@ body{
     padding:10px 13px;
 }
 
+#result_table th:nth-of-type(1), #default_table th:nth-of-type(1){ /*second column*/
+    text-align: left;
+    box-sizing: border-box;
+    width: 104px; /*307*/
+}
 
 #result_table th:nth-of-type(2), #default_table th:nth-of-type(2){ /*second column*/
     text-align: left;
-    width: 321px; /*307*/
+    width: 308px; /*321*/
 }
 
 #result_table th:nth-of-type(3), #result_table td:nth-of-type(3), #default_table th:nth-of-type(3), #default_table td:nth-of-type(3){ /*second column*/

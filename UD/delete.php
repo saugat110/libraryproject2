@@ -17,4 +17,13 @@
         $stmt = $db -> prepare($query);
         $stmt -> execute([':id' => $_POST['author_id']]);
         header('Location:../dboard/author.php');
+    
+    }else if (isset($_POST['delete_rack'])){
+        // echo $_POST['a_id'];
+
+        $query = "delete from rack where rack_id = :id";
+        $stmt = $db -> prepare($query);
+        $stmt -> execute([':id' => $_POST['rack_id']]);
+        header('Location:../dboard/rack.php');
+
     }
