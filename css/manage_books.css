@@ -1,3 +1,390 @@
 .content p{
-    color:plum;
+    color:green;
 }
+
+body{
+    /* position: absolute; */
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+#book_title{
+    font-size: 27px;
+    margin-top:11px;
+}
+
+#book_search{ /*search field*/
+    width: calc(100% - 70px);
+    height:33px;
+    padding-left: 7px;
+    margin-bottom: 13px;
+}
+
+.search_result{
+    display: none;
+}
+
+#result_table, #default_table{
+    box-sizing: border-box;
+    border-collapse: collapse;
+    font-size: 13px;
+    width: fit-content;
+}
+
+
+
+#result_table th, #result_table td, #default_table th, #default_table td{
+    border:2px solid rgb(159, 159, 159);
+}
+
+
+#result_table th, #result_table td, #default_table th, #default_table td{
+    padding:10px 13px;
+}
+
+#result_table th:nth-of-type(1), #default_table th:nth-of-type(1){ /*second column*/
+    text-align: left;
+    box-sizing: border-box;
+    /* width: 104px; 307 */
+}
+
+#result_table th:nth-of-type(2), #default_table th:nth-of-type(2){ /*second column*/
+    text-align: left;
+    /* width: 308px; 321 */
+}
+
+#result_table th:nth-of-type(3), #result_table td:nth-of-type(3), #default_table th:nth-of-type(3), #default_table td:nth-of-type(3){ /*second column*/
+    text-align: left;
+    width: fit-content;
+    /* padding-right: 21px; */
+}
+
+
+
+
+
+.update_form{
+    box-sizing: border-box;
+    width: fit-content;
+    display: none;
+    background-color: white;
+    position: absolute;
+    top:30%;
+    left:50%;
+    transform: translate(-50%, -30%);
+    z-index: 1200;
+    width: 300px;
+    height:251px;
+    border-radius: 12px;
+    padding: 10px 10px;
+}
+
+.hideall{
+    position: absolute;
+    left:0;
+    top:0;
+    display: none;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.44);
+    z-index: 1000;
+}
+
+.update_form p{
+    font-size: 23px;
+    margin-left: 11px;
+}
+
+.update_form form input[type="text"]{
+    height: 33px;
+    width: 91%;
+    padding-left: 7px;
+    margin-left: 5px;
+}
+
+.update_form label{
+    display: inline-block;
+    margin-left: 7px;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+
+
+.update_form form input[type="submit"], .update_form form button{ /*buttons*/
+    height: 40px;
+    background-color: rgb(141, 210, 37);
+    padding: 5px 20px;
+    margin-left: 51px;
+    border:0px;
+    border-radius: 7px;
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+}
+
+.update_form form button{
+    background-color: red;
+    margin-left: 13px;
+}
+
+
+
+
+#search_edit_button, #result_table form input[type="submit"], #default_table form input[type="submit"]{
+    box-sizing: border-box;
+    font-size: 13px;
+    height: 30px;
+    background-color: rgb(141, 210, 37);
+    padding: 3px 20px;
+    /* margin-left: 51px; */
+    border:0px;
+    border-radius: 7px;
+    color: rgb(255, 255, 255);
+    width: 76px;
+}
+
+#result_table form, #default_table form{
+    display: inline-block;
+}
+
+#result_table form input[type="submit"], #default_table form input[type="submit"]{
+    background-color: red;
+    margin-left: 7px;
+}
+
+
+
+#add_button{
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+    border:0px;
+    border-radius: 7px;
+    position: absolute;
+    right:79px;
+    top:19px;
+}
+
+.addform{
+    box-sizing: border-box;
+    width: fit-content;
+    display: none;
+    background-color: white;
+    position: absolute;
+    top:15%;
+    left:50%;
+    transform: translate(-50%, -15%);
+    z-index: 1200;
+    width: 300px;
+    height:581px;
+    border-radius: 12px;
+    padding: 7px 10px;
+}
+
+
+.addform p{
+    font-size: 21px;
+    margin-left: 9px;
+}
+
+.addform form input[type="text"], .addform form input[type="number"]{
+    height: 23px;
+    width: 91%;
+    padding-left: 7px;
+    margin-left: 5px;
+    margin-bottom: 13px;
+}
+
+.addform form input[type="file"]{
+    margin-left: 5px;
+    margin-bottom: 13px;
+}
+
+.addform form select{
+    height: 29px;
+    width: 96%;
+    padding-left: 7px;
+    margin-left: 5px;
+    margin-bottom: 13px;
+    background-color: rgb(245, 243, 243);
+    color: black;
+    border:0px;
+    border-radius: 3px;
+}
+
+.addform label{
+    display: inline-block;
+    margin-left: 7px;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+
+
+.addform form input[type="submit"], .addform form button{ /*buttons*/
+    height: 40px;
+    background-color: rgb(141, 210, 37);
+    padding: 5px 20px;
+    margin-left: 51px;
+    border:0px;
+    border-radius: 7px;
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+}
+
+.addform form button{
+    background-color: red;
+    margin-left: 13px;
+}
+
+
+
+
+/* after 2 month */
+
+td.image_cell{
+    height: 104px !important;
+    width: 91px !important;
+    max-width:91px;
+    max-height:104px;
+    box-sizing: border-box;
+    padding:5px 1px !important;
+}
+
+.image_cell img{ /*image width */
+    display: block;     /* Ensure the image is displayed as a block element */
+    max-width: 100%;    /* Limit the image width to the available space */
+    max-height: 100%;   /* Limit the image height to the available space */
+    min-width: 75.29%;
+    margin: 0 auto;
+}
+ 
+#result_table th:nth-of-type(1), #default_table th:nth-of-type(1){ /*first column*/
+    box-sizing: border-box;
+    max-width: 91px;
+    min-width: 91px;
+
+ }
+
+ #result_table td:nth-of-type(2), #default_table td:nth-of-type(2){ /*second column*/
+    box-sizing: border-box;
+    max-width: 194.25px;
+    max-height:104px;
+    min-width: 194.25px;
+    min-height:104px;
+
+ }
+
+ #result_table th, #default_table th{
+    text-align: left !important;
+ }
+
+ #result_table td:nth-of-type(3), #default_table td:nth-of-type(3){ /*second column*/
+    box-sizing: border-box;
+    max-width: 122px;
+    max-height:104px;
+    min-width: 122px;
+    min-height:104px;
+    overflow: hidden;
+
+ }
+
+ #result_table td:nth-of-type(4), #default_table td:nth-of-type(4){ /*second column*/
+    box-sizing: border-box;
+    max-width: 163px;
+    max-height:104px;
+    min-width: 163px;
+    min-height:104px;
+ }
+
+ #result_table td:nth-of-type(5), #default_table td:nth-of-type(5){ /*second column*/
+    box-sizing: border-box;
+    max-width: 131.35px;
+    max-height:104px;
+    min-width: 131.35px;
+    min-height:104px;
+ }
+
+ #result_table td:nth-of-type(6), #default_table td:nth-of-type(6){ /*second column*/
+    box-sizing: border-box;
+    max-width: 59.0833px;
+    max-height:104px;
+    min-width: 59.0833px;
+    min-height:104px;
+
+ }
+
+ #result_table td:nth-of-type(7), #default_table td:nth-of-type(7){ /*second column*/
+    box-sizing: border-box;
+    max-width: 71.333px;
+    max-height:104px;
+    min-width: 71.333px;
+    min-height:104px;
+    overflow: hidden;
+ }
+
+ #result_table td:nth-of-type(8), #default_table td:nth-of-type(8){ /*second column*/
+    box-sizing: border-box;
+    max-width: 190.617px;
+    max-height:104px;
+    min-width: 190.617px;
+    min-height:104px;
+ }
+
+
+ /*th*/
+ #result_table th:nth-of-type(1), #default_table th:nth-of-type(1){ /*first column*/
+    box-sizing: border-box;
+    max-width: 91px;
+    min-width: 91px;
+ }
+
+ #result_table th:nth-of-type(2), #default_table th:nth-of-type(2){ /*first column*/
+    box-sizing: border-box;
+    max-width: 194.25px;
+    min-width: 194.25px;
+ }
+
+ #result_table th:nth-of-type(3), #default_table th:nth-of-type(3){ /*first column*/
+    box-sizing: border-box;
+    max-width: 122px;
+    min-width: 122px;
+ }
+
+ #result_table th:nth-of-type(4), #default_table th:nth-of-type(4){ /*first column*/
+    box-sizing: border-box;
+    max-width: 163px;
+    min-width: 163px;
+ }
+
+ #result_table th:nth-of-type(5), #default_table th:nth-of-type(5){ /*first column*/
+    box-sizing: border-box;
+    max-width: 131.35px;
+    min-width: 131.35px;
+ }
+
+ #result_table th:nth-of-type(6), #default_table th:nth-of-type(6){ /*first column*/
+    box-sizing: border-box;
+    max-width: 59.0833px;
+    min-width: 59.0833px;
+ }
+
+ #result_table th:nth-of-type(7), #default_table th:nth-of-type(7){ /*first column*/
+    box-sizing: border-box;
+    max-width: 71.333px;
+    min-width: 71.333px;
+ }
+
+ #result_table th:nth-of-type(8), #default_table th:nth-of-type(8){ /*first column*/
+    box-sizing: border-box;
+    max-width: 190.617px;
+    min-width: 190.617px;
+ }
+
+
+
+ 
+
+ 
+
+
+

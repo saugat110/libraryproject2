@@ -26,4 +26,11 @@
         $stmt -> execute([':id' => $_POST['rack_id']]);
         header('Location:../dboard/rack.php');
 
+    }else if (isset($_POST['delete_book'])){
+        // echo $_POST['a_id'];
+
+        $query = "delete from books where b_id = :id";
+        $stmt = $db -> prepare($query);
+        $stmt -> execute([':id' => $_POST['b_id']]);
+        header('Location:../dboard/manage_books.php');
     }
