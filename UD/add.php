@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require_once '../config/connection.php';
 
     if(isset($_POST['add_category_form'])){ //category
@@ -87,32 +88,6 @@
                  } else    
                     return 1;
             }
-    
-            public function pre_query(){ //inserts all form data except image
-                    try{
-                        $query = "insert into books (name, isbn, author ,category, rack, copies) values (?, ?, ?, ?, ?, ?)";
-                        $stmt = $this -> conn -> prepare($query);
-                        $stmt -> execute([ $_POST['book_name'], $_POST['isbn'], $_POST['author_name'], $_POST['category_name'], $_POST['rack_name'], $_POST['copies']]);
-                        $this -> insert_id = $this -> conn -> lastInsertId();
-                        return 1;
-                    }catch(Exception $e){
-                        // echo $e ->getMessage();
-                        $this -> error['pre_query'] = 1;
-                        return 0; //if query cant execute return 0
-                    }
-                
-            }
-    
-            public function set_target(){
-               if( ($this -> check_extension()) && ($this -> pre_query()) ){  //sets $ext, $target_file and runs query
-                    $this -> img_name = $this -> insert_id . '.' . $this -> ext;
-                    $this -> target_file = $this -> target_dir . $this -> img_name;
-                    return 1;
-               }else{
-                $this -> error['set_target'] = 1;
-                return 0;
-               }
-            }
 
             public function doesnt_exists(){
                 if(file_exists($this -> target_file)){
@@ -123,16 +98,38 @@
                 }
             }
     
-            public function check_all(){
-                if( ($this -> check_if_image()) && ($this -> check_size()) && ($this -> set_target()) && ($this -> doesnt_exists()) ){
-                    return 1;
-                }else{
+            public function pre_query(){ //inserts all form data except image
+                if( ($this -> check_if_image()) && ($this -> check_size()) && ($this -> check_extension()) && ($this -> doesnt_exists()) ){
+                    try{
+                        $query = "insert into books (name, isbn, author ,category, rack, copies) values (?, ?, ?, ?, ?, ?)";
+                        $stmt = $this -> conn -> prepare($query);
+                        $stmt -> execute([ $_POST['book_name'], $_POST['isbn'], $_POST['author_name'], $_POST['category_name'], $_POST['rack_name'], $_POST['copies']]);
+                        $this -> insert_id = $this -> conn -> lastInsertId();
+                        $_SESSION['run_prequery'] = 1;
+                        return 1;
+                    }catch(Exception $e){
+                        // echo $e ->getMessage();
+                        $this -> error['pre_query'] = 1;
+                        return 0; //if query cant execute return 0
+                    }
+                } else{
                     return 0;
                 }
             }
     
+            public function set_target(){
+               if( $this -> pre_query() ){  //sets $ext, $target_file and runs query
+                    $this -> img_name = $this -> insert_id . '.' . $this -> ext;
+                    $this -> target_file = $this -> target_dir . $this -> img_name;
+                    return 1;
+               }else{
+                $this -> error['set_target'] = 1;
+                return 0;
+               }
+            }
+    
             public function upload_file(){
-                if($this -> check_all()){
+                if($this -> set_target()){
                     if(move_uploaded_file($_FILES['imgfile']['tmp_name'], $this -> target_file)){
                         return 1;
                     }else{
@@ -158,7 +155,23 @@
         }
         $i1 = new image($db);
         $ok = $i1 ->  upload_file();
-        $i1 -> post_query();
+        if($ok == 1){ //image uploaded vayo vne $ok = 1 hunxa
+            $i1 -> post_query();
+            header("Location:../dboard/manage_books.php");
+        }else{
+            $_SESSION['add_book_error'] = 1;
+
+            $_SESSION['book_name'] = $_POST['book_name'];
+            $_SESSION['isbn'] = $_POST['isbn'];
+            $_SESSION['author_name'] = $_POST['author_name'];
+            $_SESSION['book_name'] = $_POST['book_name'];
+            $_SESSION['category_name'] = $_POST['category_name'];
+            $_SESSION['rack_name'] = $_POST['rack_name'];
+            $_SESSION['copies'] = $_POST['copies'];
+
+
+
+            header("Location:../dboard/manage_books.php");
+        }
         // print_r($i1 -> error);
-        header("Location:../dboard/manage_books.php");
     }

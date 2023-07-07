@@ -55,3 +55,31 @@ function close_add(){
     document.querySelector('.addform').style.display = 'none';
     document.querySelector('.hideall').style.display = 'none';
 }
+
+// window.onunload = function() {
+//     if (location.search.includes('?e=1')) {
+//       var newUrl = location.href.replace('?e=1', '');
+//       history.replaceState(null, '', newUrl);
+//     }
+//   };
+
+  
+  $(document).ready(function(){  //image upload error auda add form afai kholna lai
+
+    $.ajax({
+
+        url:"dat.php",
+        method:"GET",
+        dataType:"json",
+
+        success:function(response){
+            console.log("hello namuna");
+            if(response.error){
+                show_add_form();
+                console.log(response.error);
+            }
+        }
+
+    });
+
+  });

@@ -26,6 +26,7 @@ $stmt = $db->prepare($query4);
 $stmt->execute();
 $rack_result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+
 ?>
 
 <!DOCTYPE html>
@@ -114,34 +115,42 @@ $rack_result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         <div class="addform"> <!--add book form-->
             <p>Add Book</p>
+            <p id="emessage">
+                <?php if(isset($_SESSION['add_book_error'])) {?>
+                    <?php echo 'Error uploading image'; ?>
+                <?php } ?>
+                <!-- <?php if(isset($_SESSION['run_prequery'])) {?> <!-- to test pre_query runs only when image is ok -->
+                    <?php echo 'pre query run'; ?>
+                <?php } ?> -->
+            </p>
             <form action="../UD/add.php" method="post" enctype="multipart/form-data">
                 <label>Enter book name:</label>
-                <input type="text" name="book_name" required><br>
+                <input type="text" name="book_name" required  value="<?php echo (isset($_SESSION['book_name']) )?$_SESSION['book_name']:'';?>" ><br>
 
                 <label for="">Enter ISBN number:</label>
-                <input type="text" name="isbn" required><br>
+                <input type="text" name="isbn" required value="<?php echo (isset($_SESSION['isbn']) )?$_SESSION['isbn']:'';?>" ><br>
 
                 <label for="">Enter no of copies:</label>
-                <input type="number" name="copies" min="1" value="10" required><br>
+                <input type="number" name="copies" min="1" required  value="<?php echo (isset($_SESSION['copies']) )?$_SESSION['copies']:'';?>" ><br>
 
                 <label for="">Choose Category:</label>
                 <select name="category_name">
                     <?php foreach($category_result as $single) {?>
-                        <option value="<?php echo $single['Name']; ?>"> <?php echo $single['Name']; ?> </option>
+                        <option value="<?php echo $single['Name'];?>" <?php if( $single['Name'] == $_SESSION['category_name'] ){echo "selected";} ?>  > <?php echo $single['Name']; ?> </option>
                     <?php } ?>
                 </select>
 
                 <label for="">Choose Author:</label>
                 <select name="author_name">
                     <?php foreach($author_result as $single) {?>
-                        <option value="<?php echo $single['Name']; ?>"> <?php echo $single['Name']; ?> </option>
+                        <option value="<?php echo $single['Name'];?>" <?php if( $single['Name'] == $_SESSION['author_name'] ){echo "selected";} ?>  > <?php echo $single['Name']; ?> </option>
                     <?php } ?>
                 </select>
 
                 <label for="">Choose Rack:</label>
                 <select name="rack_name">
                     <?php foreach($rack_result as $single) {?>
-                        <option value="<?php echo $single['Name']; ?>"> <?php echo $single['Name']; ?> </option>
+                        <option value="<?php echo $single['Name'];?>"  <?php if( $single['Name'] == $_SESSION['rack_name'] ){echo "selected";} ?>  > <?php echo $single['Name']; ?> </option>
                     <?php } ?>
                 </select>
 
@@ -154,11 +163,14 @@ $rack_result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
 
 
-        <div class="hideall"></div>
+        <div class="hideall"></div>  <!-- add, edit hru thichda background unclickable banauna -->
 
 
         <script src="../javascript/manage_book.js"></script>
         <script src="../javascript/sidebar_active.js"></script>
+
+        
+        <?php unset($_SESSION['run_prequery']); ?> <!-- to test if pre query runs only when image is ok -->
 
     </body>
 </body>
