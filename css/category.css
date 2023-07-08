@@ -28,12 +28,28 @@ body{
     border-collapse: collapse;
     font-size: 13px;
     width: fit-content;
+    box-shadow: -1px 1px 5px -1px rgba(0,0,0,0.75);
+    -webkit-box-shadow: -1px 2px 5px -1px rgba(186, 186, 186, 0.75);
+    color:rgb(100, 100, 100);
 }
 
 
 
-#result_table th, #result_table td, #default_table th, #default_table td{
-    border:2px solid rgb(159, 159, 159);
+ #result_table td,  #default_table td{
+    /* border:2px solid rgb(159, 159, 159); */
+    border-bottom: 2px solid rgb(159, 159, 159);
+}
+
+#result_table th, #default_table th{
+    background-color: #31B6C0;
+    color:rgb(250, 250, 250);
+    /* border-radius: 7px; */
+}
+#result_table th:nth-child(1), #default_table th:nth-child(1){
+    border-top-left-radius: 7px;
+}
+#result_table th:last-child, #default_table th:last-child{
+    border-top-right-radius: 7px;
 }
 
 
@@ -44,7 +60,9 @@ body{
 
 #result_table th:nth-of-type(2), #default_table th:nth-of-type(2){ /*second column*/
     text-align: left;
-    width: 307px;
+    /* width: 307px; */
+    width: 699px;
+    max-width: 699px;
 }
 
 #result_table th:nth-of-type(3), #result_table td:nth-of-type(3), #default_table th:nth-of-type(3), #default_table td:nth-of-type(3){ /*second column*/
@@ -53,6 +71,11 @@ body{
     padding-right: 21px;
 }
 
+/* action lai bich tira lyauna */
+#result_table th:nth-of-type(3), #default_table th:nth-of-type(3){
+    padding-right: 0px;
+    padding-left: 67px;
+}
 
 
 
@@ -125,16 +148,18 @@ body{
 
 
 #search_edit_button, #result_table form input[type="submit"], #default_table form input[type="submit"]{
-    box-sizing: border-box;
+    box-sizing: border-box;    /* edit button */
     font-size: 13px;
     height: 30px;
-    background-color: rgb(141, 210, 37);
+    background-color: white;
     padding: 3px 20px;
     /* margin-left: 51px; */
-    border:0px;
+    border:2px solid gray;
     border-radius: 7px;
-    color: rgb(255, 255, 255);
+    color: gray;
     width: 76px;
+
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 #result_table form, #default_table form{
@@ -142,8 +167,21 @@ body{
 }
 
 #result_table form input[type="submit"], #default_table form input[type="submit"]{
-    background-color: red;
+    background-color: white;  /* delete button */
+    border:2px solid rgb(255, 118, 118);
+    color:rgb(255, 118, 118);
     margin-left: 7px;
+    padding-left: 17px;
+}
+
+#search_edit_button:hover{ /*edit button */
+    background-color: gray;
+    color: white;
+}
+
+#result_table form input[type="submit"]:hover, #default_table form input[type="submit"]:hover{ /*delete button */
+    background-color: rgb(255, 118, 118);
+    color: white;
 }
 
 
