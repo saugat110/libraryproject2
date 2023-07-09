@@ -32,5 +32,6 @@
         $query = "delete from books where b_id = :id";
         $stmt = $db -> prepare($query);
         $stmt -> execute([':id' => $_POST['b_id']]);
+        unlink("../images/books/{$_POST['i2name']}");
         header('Location:../dboard/manage_books.php');
     }

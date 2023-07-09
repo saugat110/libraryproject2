@@ -1,3 +1,4 @@
+// location.reload();
 $(document).ready(function(){
 
     $('#book_search').keyup(function(){
@@ -33,17 +34,60 @@ $(document).ready(function(){
 
 
 
-function updateform(id, name){ //from search
+function updateform(id, name, isbn, category, author, rack, copies, iname){ //from search
     document.querySelector('.update_form').style.display = 'block';
-    document.getElementById('auth_name').value = name;
-    document.getElementById('auth_id').value = id;
+    document.getElementById('hido').value = id;
+    document.getElementById('book_name').value = name;
+    document.getElementById('isbn').value = isbn;
+    document.getElementById('copies').value = copies;
+    document.getElementById('iname').value = iname;
+
+    var categoryElement = document.querySelector('select[name="category_name"]');
+    var elements = categoryElement.options;
+    for (var i = 0; i < elements.length; i++) {
+        // Check if the option value matches "science"
+        if (elements[i].value === category) {
+            // Set the option as selected
+            elements[i].selected = true;
+            break; // Exit the loop since the desired option has been selected
+        }
+    }
+
+    var categoryElement = document.querySelector('select[name="author_name"]');
+    var elements = categoryElement.options;
+    for (var i = 0; i < elements.length; i++) {
+        // Check if the option value matches "science"
+        if (elements[i].value === author) {
+            // Set the option as selected
+            elements[i].selected = true;
+            break; // Exit the loop since the desired option has been selected
+        }
+    }
+
+    var categoryElement = document.querySelector('select[name="rack_name"]');
+    var elements = categoryElement.options;
+    for (var i = 0; i < elements.length; i++) {
+        // Check if the option value matches "science"
+        if (elements[i].value === rack) {
+            // Set the option as selected
+            elements[i].selected = true;
+            break; // Exit the loop since the desired option has been selected
+        }
+    }
+
     document.querySelector('.hideall').style.display = 'block';
 }
+
+
+
 
 function close_update(){
     document.querySelector('.update_form').style.display = 'none';
     document.querySelector('.hideall').style.display = 'none';
 }
+
+
+
 
 
 function show_add_form(){
@@ -56,12 +100,11 @@ function close_add(){
     document.querySelector('.hideall').style.display = 'none';
 }
 
-// window.onunload = function() {
-//     if (location.search.includes('?e=1')) {
-//       var newUrl = location.href.replace('?e=1', '');
-//       history.replaceState(null, '', newUrl);
-//     }
-//   };
+
+
+function error_update_form(){
+    document.querySelector('.update_form').style.display = 'block';
+}
 
   
   $(document).ready(function(){  //image upload error auda add form afai kholna lai
@@ -78,6 +121,25 @@ function close_add(){
                 show_add_form();
                 console.log(response.error);
             }
+
+        }
+
+    });
+
+    $.ajax({
+
+        url:"dat2.php",
+        method:"GET",
+        dataType:"json",
+
+        success:function(response){
+            console.log("hello kaaaaamuna");
+            if(response.error2){
+                error_update_form();
+                console.log(response.error2);
+                // alert("hello");
+            }
+
         }
 
     });

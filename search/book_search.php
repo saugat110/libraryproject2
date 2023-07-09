@@ -3,7 +3,7 @@
     if(isset($_POST['input'])){
         require_once '../config/connection.php';
 
-        $query = "select * from books where lower(name) like concat(:search, '%') or  isbn like concat(:search, '%') or lower(category) like concat(:search, '%') or lower(author) like concat(:search, '%') or lower(rack) like concat(:search, '%')";
+        $query = "select * from books where lower(name) like concat(:search, '%') or  isbn like concat(:search, '%') or lower(category) like concat(:search, '%') or lower(author) like concat(:search, '%') or lower(rack) like concat(:search, '%') order by b_id desc";
         $stmt = $db -> prepare($query);
         $stmt -> execute([':search' => strtolower($_POST['input'])]);
         $num_rows = $stmt -> rowCount();
@@ -35,7 +35,7 @@
                         <td><?php echo $single['rack']; ?></td>
                         <td><?php echo $single['copies']; ?></td>
                         <td>
-                            <button type="button" onclick="updateform('<?php echo $single['auth_id']; ?>', '<?php echo $single['Name']; ?>')" id="search_edit_button">Edit</button>
+                            <button type="button" onclick="updateform('<?php echo $single['b_id']; ?>','<?php echo $single['name']; ?>', '<?php echo $single['isbn']; ?>', '<?php echo $single['category']; ?>', '<?php echo $single['author']; ?>', '<?php echo $single['rack']; ?>', '<?php echo $single['copies']; ?>')" id="search_edit_button">Edit</button>
                             <form action="../UD/delete.php" method="post">
                                 <input type="hidden" name="b_id" value="<?php echo $single['b_id']; ?>">
                                 <input type="submit" value="Delete" name="delete_book">
@@ -47,7 +47,7 @@
             </table>
 
        <?php }else{
-            echo '<p>No match Found</p>';
+            echo '<p style="margin-left:13px;">No match Found</p>';
         }
 
 
