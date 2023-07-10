@@ -12,17 +12,17 @@ $stmt->execute();
 $booK_count = $stmt -> rowCount();
 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-$query2 = "select Name from author";
+$query2 = "select * from author order by auth_id desc";
 $stmt = $db->prepare($query2);
 $stmt->execute();
 $author_result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-$query3 = "select Name from category";
+$query3 = "select * from category order by category_id desc";
 $stmt = $db->prepare($query3);
 $stmt->execute();
 $category_result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-$query4 = "select Name from rack";
+$query4 = "select * from rack order by rack_id desc";
 $stmt = $db->prepare($query4);
 $stmt->execute();
 $rack_result = $stmt->fetchAll(PDO::FETCH_ASSOC);

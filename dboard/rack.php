@@ -6,7 +6,7 @@ if (!isset($_SESSION['admin_id'])) {
     header('Location:../error/error.php');
 }
 
-$query = "select * from rack";
+$query = "select * from rack order by rack_id desc";
 $stmt = $db->prepare($query);
 $stmt->execute();
 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);

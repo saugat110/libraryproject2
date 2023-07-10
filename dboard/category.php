@@ -5,7 +5,7 @@ if (!isset($_SESSION['admin_id'])) {
     header('Location:../error/error.php');
 }
 
-$query = "select * from category";
+$query = "select * from category order by category_id desc";
 $stmt = $db->prepare($query);
 $stmt->execute();
 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
