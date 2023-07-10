@@ -217,6 +217,21 @@ error_reporting(E_ALL);
                 header("Location:../dboard/manage_books.php");
 
         }
+    }else if(isset($_POST['update_admin_form'])){
+            $query = "update admin set fname=?, lname=?, password=?, address=?, role =? , phone =?
+            where a_id = ?";
+            $stmt = $db -> prepare($query);
+            $stmt -> execute([
+                $_POST['fname'],
+                $_POST['lname'],
+                $_POST['password'],
+                $_POST['address'],
+                $_POST['update_role'],
+                $_POST['phone'],
+                $_POST['update_admin_id']
+            ]);
+            header("Location:../dboard/manage_admin.php");
+        
     }
 
 

@@ -1,4 +1,6 @@
 <?php
+    ini_set('display_errors', 1);
+    error_reporting(E_ALL);
     session_start();
     require_once '../config/connection.php';
 
@@ -174,4 +176,36 @@
             header("Location:../dboard/manage_books.php");
         }
         // print_r($i1 -> error);
+    }else if(isset($_POST['add_admin_form'])){ //add admin form
+
+        $query = "Select email from admin where email = ?";
+        $stmt = $db -> prepare($query);
+        $stmt -> execute([$_POST['email']]);
+
+        if($stmt -> rowCount() == 0){  //duplicate email xaina vne
+            $query2= "insert into admin(fname, lname, email, phone, address, password, role) values(?, ?, ?, ?, ?, ?, ?)";
+            $stmt2 = $db -> prepare($query2);
+            $stmt2 -> execute([$_POST['fname'], $_POST['lname'], $_POST['email'], $_POST['phone'], $_POST['address'], $_POST['password'] ,$_POST['role']]);
+            header("Location:../dboard/manage_admin.php");
+        }else{
+            $_SESSION['add_admin_error'] = 1;
+
+            $_SESSION['fname'] = $_POST['fname'];
+            $_SESSION['lname'] = $_POST['lname'];
+            $_SESSION['email'] = $_POST['email'];
+            $_SESSION['phone'] = $_POST['phone'];
+            $_SESSION['address'] = $_POST['address'];
+            $_SESSION['password'] = $_POST['password'];
+            $_SESSION['role'] = $_POST['role'];
+
+            header('Location:../dboard/manage_admin.php');
+        }
+
+
+
+
+
+
+
+
     }

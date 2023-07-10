@@ -36,8 +36,6 @@ body{
 
 
  #result_table td,  #default_table td{
-    /* border:2px solid rgb(159, 159, 159); */
-    /* border-top: 2px solid rgb(159, 159, 159); */
     border-bottom: 2px solid rgb(159, 159, 159);
 }
 
@@ -192,14 +190,20 @@ body{
 
 
 #add_button{
-    background-color: green;
-    color: white;
+    background-color: white;
+    color:#33CEA5;
     padding: 10px 20px;
-    border:0px;
+    border:2px solid #33CEA5;
     border-radius: 7px;
     position: absolute;
     right:59px;
     top:19px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+}
+#add_button:hover{
+    background-color: #33CEA5;
+    color:white;
 }
 
 #emessage{

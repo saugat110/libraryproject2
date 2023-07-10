@@ -1,6 +1,7 @@
 <?php
 //add book garesi image upload grda error ayo (add_book_error) session set hunxa ani
 //  back to manage_books.php ma janxa ani add form afai khulxa
+//for popping up add book form in case of image error
 
 session_start();
 

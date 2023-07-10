@@ -9,6 +9,7 @@ if (!isset($_SESSION['admin_id'])) {
 $query = "select * from books order by b_id desc ";
 $stmt = $db->prepare($query);
 $stmt->execute();
+$booK_count = $stmt -> rowCount();
 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 $query2 = "select Name from author";
@@ -62,6 +63,7 @@ $rack_result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <div class="search_result"></div> <!-- search table -->
             </div>
         <div class="default_table_wrapper">
+            <?php if($booK_count > 0) {?>
             <table id="default_table"> <!-- default table-->
                 <tr>
                     <th>Image</th>
@@ -93,6 +95,7 @@ $rack_result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     </tr>
                 <?php } ?>
             </table>
+            <?php } ?>
         </div>
 
 

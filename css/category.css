@@ -187,14 +187,21 @@ body{
 
 
 #add_button{
-    background-color: green;
-    color: white;
+    background-color: white;
+    color: #31B6C0;
     padding: 10px 20px;
-    border:0px;
+    border:2px solid #31B6C0;
     border-radius: 7px;
     position: absolute;
     right:79px;
     top:19px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+}
+
+#add_button:hover{
+    background-color: #31B6C0;
+    color:white;
 }
 
 .addform{

@@ -1,4 +1,5 @@
 <?php
+//for poping up update form in case of image error
 session_start();
 if(isset($_SESSION['update_book_error'])){
     $response  = array("error2" => true);
