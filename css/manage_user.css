@@ -1,3 +1,258 @@
 .content p{
-    color:blueviolet;
+    color:green;
 }
+
+body{
+    /* position: absolute; */
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+#student_title{
+    font-size: 27px;
+    margin-top:11px;
+}
+
+#student_search{ /*search field*/
+    width: calc(100% - 63px);
+    height:33px;
+    padding-left: 7px;
+    margin-bottom: 13px;
+}
+
+.search_result{
+    display: none;
+}
+
+#result_table, #default_table{
+    box-sizing: border-box;
+    border-collapse: collapse;
+    font-size: 13px;
+    width: fit-content;
+    box-shadow: -1px 1px 5px -1px rgba(0,0,0,0.75);
+    -webkit-box-shadow: -1px 2px 5px -1px rgba(186, 186, 186, 0.75);
+    color:rgb(100, 100, 100);
+}
+
+#result_table td,  #default_table td{
+    border-bottom: 2px solid rgb(159, 159, 159);
+}
+
+#result_table th, #default_table th{
+    background-color: #32C56D;
+    color:rgb(250, 250, 250);
+}
+
+#result_table th:nth-child(1), #default_table th:nth-child(1){
+    border-top-left-radius: 7px;
+}
+#result_table th:last-child, #default_table th:last-child{
+    box-sizing: border-box;
+    border-top-right-radius: 7px;
+    /* padding-left:9px; */
+    text-align: center;
+    width: 119px;
+    max-width: 119px;
+}
+
+
+
+#result_table th, #default_table th{
+    text-align: left;
+}
+
+
+#result_table th, #result_table td, #default_table th, #default_table td{
+    padding:10px 13px;
+}
+
+#result_table td:nth-of-type(1), #default_table td:nth-of-type(1){ /*second column*/
+    text-align: left;
+    box-sizing: border-box;
+    width: 119px; /*307*/
+}
+
+#result_table td:nth-of-type(2), #default_table td:nth-of-type(2){ /*second column*/
+    text-align: left;
+    box-sizing: border-box;
+    width: 119px; /*321*/
+    max-width: 119px;
+}
+
+#result_table th:nth-of-type(3), #result_table td:nth-of-type(3), #default_table th:nth-of-type(3), #default_table td:nth-of-type(3){ /*second column*/
+    text-align: left;
+    width: fit-content;
+    padding-right: 21px;
+}
+
+#result_table td:nth-of-type(4), #default_table td:nth-of-type(4){ /*second column*/
+    text-align: left;
+    box-sizing: border-box;
+    width: 227px; /*321*/
+    max-width: 227px;
+    word-wrap: break-word;
+}
+
+#result_table td:nth-of-type(5), #default_table td:nth-of-type(5){ /*second column*/
+    text-align: left;
+    box-sizing: border-box;
+    width: 99px; /*321*/
+    max-width: 99px;
+    word-wrap: break-word;
+}
+
+#result_table td:nth-of-type(6), #default_table td:nth-of-type(6){ /*second column*/
+    text-align: left;
+    box-sizing: border-box;
+    width: 135px; /*321*/
+    max-width: 135px;
+    word-wrap: break-word;
+}
+
+#result_table td:nth-of-type(7), #default_table td:nth-of-type(7){ /*second column*/
+    text-align: left;
+    box-sizing: border-box;
+    width: 135px; /*321*/
+    max-width: 135px;
+}
+
+
+
+.hideall{
+    position: absolute;
+    left:0;
+    top:0;
+    display: none;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.44);
+    z-index: 1000;
+}
+
+
+#search_edit_button, #result_table form input[type="submit"], #default_table form input[type="submit"]{
+    box-sizing: border-box;
+    font-size: 13px;
+    height: 30px;
+    /* background-color: rgb(141, 210, 37); */
+    padding: 3px 20px;
+    /* margin-left: 51px; */
+    border:0px;
+    border-radius: 7px;
+    color: rgb(255, 255, 255);
+    width: 76px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#result_table form, #default_table form{
+    display: inline-block;
+}
+
+#result_table form input[type="submit"], #default_table form input[type="submit"]{
+    background-color: white;
+    border:2px solid rgb(255, 118, 118);
+    color:rgb(255, 118, 118);
+    margin-left: 9px;
+    padding-left:17px;
+}
+
+#result_table form input[type="submit"]:hover, #default_table form input[type="submit"]:hover{ /*delete button */
+    background-color: rgb(255, 118, 118);
+    color: white;
+}
+
+
+
+#add_button{
+    background-color: white;
+    color: #32C56D;
+    padding: 10px 20px;
+    border:2px solid #32C56D;
+    border-radius: 7px;
+    position: absolute;
+    right:79px;
+    top:19px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+#add_button:hover{
+    background-color: #32C56D;
+    color:white;
+}
+
+.addform{
+    box-sizing: border-box;
+    width: fit-content;
+    display: none;
+    background-color: white;
+    position: absolute;
+    top:33%;
+    left:50%;
+    transform: translate(-50%, -33%);
+    z-index: 1200;
+    width: 300px;
+    height:598px;
+    border-radius: 12px;
+    padding: 7px 10px;
+}
+
+
+.addform p{
+    font-size: 21px;
+    margin-left: 8px;
+    margin-bottom: 5px;
+}
+
+.addform form input[type="text"], .addform form input[type="number"], .addform form input[type="email"]{
+    height: 23px;
+    width: 91%;
+    padding-left: 7px;
+    margin-left: 5px;
+    margin-bottom: 13px;
+}
+
+.addform form select{
+    height: 29px;
+    width: 96%;
+    padding-left: 7px;
+    margin-left: 5px;
+    margin-bottom: 13px;
+    background-color: rgb(245, 243, 243);
+    color: black;
+    border:0px;
+    border-radius: 3px;
+}
+
+.addform label{
+    display: inline-block;
+    margin-left: 7px;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+
+
+.addform form input[type="submit"], .addform form button{ /*buttons*/
+    height: 40px;
+    background-color: rgb(141, 210, 37);
+    padding: 5px 20px;
+    margin-left: 51px;
+    border:0px;
+    border-radius: 7px;
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+}
+
+.addform form button{
+    background-color: red;
+    margin-left: 13px;
+}
+
+#emessage{
+    font-size: 13px;
+    color:red;
+    margin:0px;
+    margin-left:8px;
+    min-height: 15.433px;
+}
+
+
+

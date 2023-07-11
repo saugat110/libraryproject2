@@ -200,12 +200,35 @@
 
             header('Location:../dboard/manage_admin.php');
         }
+    }else if(isset($_POST['add_student_form'])){
 
+        $query = "Select email from student where email = ?";
+        $stmt = $db -> prepare($query);
+        $stmt -> execute([$_POST['email']]);
 
+        if($stmt -> rowCount() == 0){
+            $query2= "insert into student(fname, lname, email, phone, address, faculty, roll) values(?, ?, ?, ?, ?, ?, ?)";
+            $stmt2 = $db -> prepare($query2);
+            $stmt2 -> execute([$_POST['fname'], $_POST['lname'], $_POST['email'], $_POST['phone'], $_POST['address'], $_POST['facult'] ,$_POST['roll']]);
+            header("Location:../dboard/manage_user.php");
 
+        }else{
+            $_SESSION['add_student_error'] = 1;
 
+            $_SESSION['fname'] = $_POST['fname'];
+            $_SESSION['lname'] = $_POST['lname'];
+            $_SESSION['email'] = $_POST['email'];
+            $_SESSION['phone'] = $_POST['phone'];
+            $_SESSION['address'] = $_POST['address'];
+            $_SESSION['faculty'] = $_POST['facult'];
+            $_SESSION['roll'] = $_POST['roll'];
 
+            header('Location:../dboard/manage_user.php');
 
-
-
+        }
     }
+
+
+
+
+?>

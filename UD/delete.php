@@ -40,4 +40,9 @@
         $stmt = $db -> prepare($query);
         $stmt -> execute([$_POST['admin_id']]);
         header('Location:../dboard/manage_admin.php');
+    }else if(isset($_POST['delete_student'])){
+        $query = "delete from student where s_id  = ?";
+        $stmt = $db -> prepare($query);
+        $stmt -> execute([$_POST['student_id']]);
+        header('Location:../dboard/manage_user.php');
     }

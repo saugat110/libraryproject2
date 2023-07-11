@@ -123,8 +123,8 @@ $rack_result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <?php echo 'Error uploading image'; ?>
                 <?php } ?>
                 <!-- <?php if(isset($_SESSION['run_prequery'])) {?> <!-- to test pre_query runs only when image is ok -->
-                    <?php echo 'pre query run'; ?>
-                <?php } ?> -->
+                    <!-- <?php echo 'pre query run'; ?> -->
+                <!-- <?php } ?> -->
             </p>
             <form action="../UD/update.php" method="post" enctype="multipart/form-data">
                 <label>Enter book name:</label>
@@ -177,8 +177,8 @@ $rack_result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <?php echo 'Error uploading image'; ?>
                 <?php } ?>
                 <!-- <?php if(isset($_SESSION['run_prequery'])) {?> <!-- to test pre_query runs only when image is ok -->
-                    <?php echo 'pre query run'; ?>
-                <?php } ?> -->
+                    <!-- <?php echo 'pre query run'; ?> -->
+                <!-- <?php } ?>  -->
             </p>
             <form action="../UD/add.php" method="post" enctype="multipart/form-data">
                 <label>Enter book name:</label>
