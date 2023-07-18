@@ -1,4 +1,6 @@
 <?php
+ini_set('display_errors', 0);
+error_reporting(0);
 //for poping up update form in case of image error
 session_start();
 if(isset($_SESSION['update_book_error'])){

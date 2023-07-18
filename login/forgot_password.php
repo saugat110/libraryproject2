@@ -1,8 +1,10 @@
 <?php
 session_start();
 
-error_reporting(E_ERROR | E_PARSE);
-ini_set('display_errors', 1);
+// error_reporting(E_ERROR | E_PARSE);
+// ini_set('display_errors', 1);
+ini_set('display_errors', 0);
+error_reporting(0);
 
 
 if( (isset($_SESSION['refered_from_login_validate']) || isset($_SESSION['refered_from_reset_password']))){
