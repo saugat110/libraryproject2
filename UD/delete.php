@@ -45,4 +45,9 @@
         $stmt = $db -> prepare($query);
         $stmt -> execute([$_POST['student_id']]);
         header('Location:../dboard/manage_user.php');
+    }else if(isset($_POST['delete_issue_book'])){
+        $query = "delete from issue_book where issue_id  = ?";
+        $stmt = $db -> prepare($query);
+        $stmt -> execute([$_POST['issue_id']]);
+        header('Location:../dboard/issue.php');
     }

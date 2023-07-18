@@ -89,17 +89,17 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <p>Edit details</p>
             <form action="../UD/update.php" method="post">
                 <label>Edit First name:</label>
-                <input type="text" id="update_fname" name="fname" value = "<?php echo ( isset($_SESSION['fname2']) )?$_SESSION['fname2']:'';?>"><br>
+                <input type="text" id="update_fname" name="fname" value = "<?php echo ( isset($_SESSION['fname2']) )?$_SESSION['fname2']:'';?>" required><br>
                 <label for="">Enter Last name:</label>
-                <input type="text" id="update_lname" name="lname" value = "<?php echo ( isset($_SESSION['lname2']) )?$_SESSION['lname2']:'';?>" ><br>
+                <input type="text" id="update_lname" name="lname" value = "<?php echo ( isset($_SESSION['lname2']) )?$_SESSION['lname2']:'';?>"  required><br>
                 <label for="">Email:</label>
-                <input type="email" name="email" id="update_email" disabled value = "<?php echo ( isset($_SESSION['email2']) )?$_SESSION['email2']:'';?>" >
+                <input type="email" name="email" id="update_email" disabled value = "<?php echo ( isset($_SESSION['email2']) )?$_SESSION['email2']:'';?>"  required>
                 <label for="">Enter password:</label>
-                <input type="text" name="password" id="update_password" value = "<?php echo ( isset($_SESSION['password2']) )?$_SESSION['password2']:'';?>">
+                <input type="text" name="password" id="update_password" value = "<?php echo ( isset($_SESSION['password2']) )?$_SESSION['password2']:'';?>" required>
                 <label for="">Enter phone:</label>
-                <input type="text" name="phone" id="update_phone" value = "<?php echo ( isset($_SESSION['phone2']) )?$_SESSION['phone2']:'';?>" >
+                <input type="text" name="phone" id="update_phone" value = "<?php echo ( isset($_SESSION['phone2']) )?$_SESSION['phone2']:'';?>"  required>
                 <label for="">Enter address:</label>
-                <input type="text" name="address" id="update_address" value = "<?php echo ( isset($_SESSION['address2']) )?$_SESSION['address2']:'';?>" >
+                <input type="text" name="address" id="update_address" value = "<?php echo ( isset($_SESSION['address2']) )?$_SESSION['address2']:'';?>"  required>
                 <label for="">Select role:</label>
                 <select name="update_role">
                     <option value="admin">admin</option>
@@ -122,17 +122,17 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </p>
             <form action="../UD/add.php" method="post">
             <label>Enter First name:</label>
-                <input type="text" id="fname" name="fname" value = "<?php echo ( isset($_SESSION['fname']) )?$_SESSION['fname']:'';?>" ><br>
+                <input type="text" id="fname" name="fname" value = "<?php echo ( isset($_SESSION['fname']) )?$_SESSION['fname']:'';?>" required><br>
                 <label for="">Enter Last name:</label>
-                <input type="text" id="lname" name="lname" value = "<?php echo( isset($_SESSION['lname']) )?$_SESSION['lname']:'';?>" ><br>
+                <input type="text" id="lname" name="lname" value = "<?php echo( isset($_SESSION['lname']) )?$_SESSION['lname']:'';?>" required><br>
                 <label for="">Enter email:</label>
-                <input type="email" name="email" id="emaill" value = "<?php echo ( isset($_SESSION['email']) )?$_SESSION['email']:'';?>" >
+                <input type="email" name="email" id="emaill" value = "<?php echo ( isset($_SESSION['email']) )?$_SESSION['email']:'';?>" required>
                 <label for="">Enter password:</label>
-                <input type="text" name="password" id="passwordd"  value = "<?php echo( isset($_SESSION['password']) )?$_SESSION['password']:'';?>">
+                <input type="text" name="password" id="passwordd"  value = "<?php echo( isset($_SESSION['password']) )?$_SESSION['password']:'';?>" required>
                 <label for="">Enter phone:</label>
-                <input type="text" name="phone" id="phone" value = "<?php echo( isset($_SESSION['phone']) )?$_SESSION['phone']:'';?>" >
+                <input type="text" name="phone" id="phone" value = "<?php echo( isset($_SESSION['phone']) )?$_SESSION['phone']:'';?>" required>
                 <label for="">Enter address:</label>
-                <input type="text" name="address" id="address" value = "<?php echo( isset($_SESSION['address']) )?$_SESSION['address']:'';?>" >
+                <input type="text" name="address" id="address" value = "<?php echo( isset($_SESSION['address']) )?$_SESSION['address']:'';?>" required>
                 <label for="">Select role:</label>
                 <select name="role">
                     <option value="admin">admin</option>

@@ -196,15 +196,6 @@ error_reporting(E_ALL);
                 $_SESSION['b_idd'] = $_POST['b_idd'];
                 $_SESSION['iname'] = $_POST['iname'];
 
-                // echo $_SESSION['book_name'].'<br/>';
-                // echo $_SESSION['isbn'].'<br/>';
-                // echo $_SESSION['author_name'].'<br/>';
-                // echo $_SESSION['book_name'].'<br/>';
-                // echo $_SESSION['category_name'].'<br/>';
-                // echo $_SESSION['rack_name'].'<br/>';
-                // echo $_SESSION['copies'].'<br/>';
-
-                
 
                 // echo "hi";
                 header("Location:../dboard/manage_books.php");
@@ -232,6 +223,12 @@ error_reporting(E_ALL);
             ]);
             header("Location:../dboard/manage_admin.php");
         
+    }else if(isset($_POST['update_issue_book'])){
+        $query  = "update issue_book set Status = ? where issue_id = ?";
+        $stmt = $db -> prepare($query);
+        $stmt -> execute([$_POST['status'], $_POST['bissue_id']]);
+
+        header("Location:../dboard/issue.php");
     }
 
 

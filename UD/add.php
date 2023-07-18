@@ -226,6 +226,30 @@
             header('Location:../dboard/manage_user.php');
 
         }
+    }else if(isset($_POST['issue_book_form'])){
+
+        $query = "select name from books where isbn = ?";
+        $stmt = $db -> prepare($query);
+        $stmt -> execute([$_POST['isbn']]);
+        $result = $stmt -> fetch(PDO::FETCH_ASSOC);
+
+        $query2 = "select fname, faculty from student where roll =?";
+        $stmt2 = $db -> prepare($query2);
+        $stmt2 -> execute([$_POST['sroll']]);
+        $result2 = $stmt2 -> fetch(PDO::FETCH_ASSOC);
+
+        $today = date("Y-m-d");
+
+        $main_query = "insert into issue_book (Book, Student, Faculty, Issue_date, Expected_return, Status )
+        values (?,?,?,?,?,?)";
+        $stmt_main = $db -> prepare($main_query);
+        $stmt_main -> execute([$result['name'], $result2['fname'], $result2['faculty'], $today, $_POST['erdate'], $_POST['status']]);
+
+        header('Location:../dboard/issue.php');
+
+
+        // echo 'hi';
+
     }
 
 
