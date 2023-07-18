@@ -13,7 +13,8 @@ body{
 }
 
 #student_search{ /*search field*/
-    width: calc(100% - 63px);
+    /* width: calc(100% - 63px); */
+    width: 1042px;
     height:33px;
     padding-left: 7px;
     margin-bottom: 13px;
@@ -44,6 +45,7 @@ body{
 
 #result_table th:nth-child(1), #default_table th:nth-child(1){
     border-top-left-radius: 7px;
+    width: 115px;
 }
 #result_table th:last-child, #default_table th:last-child{
     box-sizing: border-box;
@@ -169,7 +171,7 @@ body{
     border:2px solid #32C56D;
     border-radius: 7px;
     position: absolute;
-    right:79px;
+    right:51px;
     top:19px;
     transition: background-color 0.3s ease, color 0.3s ease;
 }

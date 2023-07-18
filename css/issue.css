@@ -13,7 +13,8 @@ body{
 }
 
 #issue_search{ /*search field*/
-    width: calc(100% - 70px);
+    /* width: calc(100% - 70px); */
+    width:1042px;
     height:33px;
     padding-left: 7px;
     margin-bottom: 13px;
@@ -84,8 +85,8 @@ body{
 
 #result_table th:nth-of-type(2), #default_table th:nth-of-type(2){ /*second column*/
     text-align: left;
-    width: 150px; /*321*/
-    max-width: 150px;
+    width: 183px; /*321*/
+    max-width: 183px;
     box-sizing: border-box;
 }
 
@@ -211,7 +212,7 @@ body{
     border:2px solid #33CEA5;
     border-radius: 7px;
     position: absolute;
-    right:77px;
+    right:51px;
     top:19px;
     transition: background-color 0.3s ease, color 0.3s ease;
 }

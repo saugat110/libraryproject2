@@ -13,7 +13,8 @@ body{
 }
 
 #rack_search{ /*search field*/
-    width: calc(100% - 70px);
+    /* width: calc(100% - 70px); */
+    width: 1042px;
     height:33px;
     padding-left: 7px;
     margin-bottom: 13px;
@@ -64,8 +65,8 @@ body{
 
 #result_table th:nth-of-type(2), #default_table th:nth-of-type(2){ /*second column*/
     text-align: left;
-    width: 697px; /*307*/
-    min-width: 697px;
+    width: 729px; /*307*/
+    min-width: 729px;
 }
 
 #result_table th:nth-of-type(3), #result_table td:nth-of-type(3), #default_table th:nth-of-type(3), #default_table td:nth-of-type(3){ /*second column*/
@@ -187,14 +188,20 @@ body{
 
 
 #add_button{
-    background-color: green;
-    color: white;
+    background-color: white;
+    color: #33CEA5;
     padding: 10px 20px;
-    border:0px;
+    border:2px solid #33CEA5;
     border-radius: 7px;
     position: absolute;
-    right:79px;
+    right:51px;
     top:19px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#add_button:hover{
+    background-color: #33CEA5;
+    color: white;
 }
 
 .addform{

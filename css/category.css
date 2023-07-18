@@ -13,7 +13,8 @@ body{
 }
 
 #category_search{ /*search field*/
-    width: calc(100% - 70px);
+    /* width: calc(100% - 70px); */
+    width: 1042px;
     height:33px;
     padding-left: 7px;
     margin-bottom: 13px;
@@ -61,8 +62,8 @@ body{
 #result_table th:nth-of-type(2), #default_table th:nth-of-type(2){ /*second column*/
     text-align: left;
     /* width: 307px; */
-    width: 699px;
-    max-width: 699px;
+    width: 731px;
+    max-width: 731px;
 }
 
 #result_table th:nth-of-type(3), #result_table td:nth-of-type(3), #default_table th:nth-of-type(3), #default_table td:nth-of-type(3){ /*second column*/
@@ -193,7 +194,7 @@ body{
     border:2px solid #31B6C0;
     border-radius: 7px;
     position: absolute;
-    right:79px;
+    right:51px;
     top:19px;
     transition: background-color 0.3s ease, color 0.3s ease;
 
