@@ -238,12 +238,17 @@
         $stmt2 -> execute([$_POST['sroll']]);
         $result2 = $stmt2 -> fetch(PDO::FETCH_ASSOC);
 
+        $query3 = "update books set copies = copies - 1 where isbn = ?";
+        $stmt3 = $db -> prepare($query3);
+        $stmt3 -> execute([$_POST['isbn']]);
+
         $today = date("Y-m-d");
 
-        $main_query = "insert into issue_book (Book, Student, Faculty, Issue_date, Expected_return, Status )
-        values (?,?,?,?,?,?)";
+        $main_query = "insert into issue_book (Book, ISBN, Student, Faculty, Issue_date, Expected_return, Status )
+        values (?,?,?,?,?,?,?)";
         $stmt_main = $db -> prepare($main_query);
-        $stmt_main -> execute([$result['name'], $result2['fname'], $result2['faculty'], $today, $_POST['erdate'], $_POST['status']]);
+        $stmt_main -> execute([ $result['name'], $_POST['isbn'], $result2['fname'], $result2['faculty'], $today, $_POST['erdate'], $_POST['status']]);
+        
 
         header('Location:../dboard/issue.php');
 

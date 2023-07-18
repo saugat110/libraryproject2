@@ -34,7 +34,7 @@
                         <td><?php echo $single['Expected_return']; ?></td>
                         <td><?php echo $single['Status']; ?></td>
                         <td>
-                            <button type="button" onclick="updateform('<?php echo $single['issue_id'];?>')" id="search_edit_button">Edit</button>
+                            <button type="button" onclick="updateform('<?php echo $single['issue_id'];?>', '<?php echo $single['ISBN'];?>')" id="search_edit_button">Edit</button>
                             <form action="../UD/delete.php" method="post">
                                 <input type="hidden" name="issue_id" value="<?php echo $single['issue_id']; ?>">
                                 <input type="submit" value="Delete" name="delete_issue_book">

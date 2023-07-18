@@ -224,9 +224,16 @@ error_reporting(E_ALL);
             header("Location:../dboard/manage_admin.php");
         
     }else if(isset($_POST['update_issue_book'])){
-        $query  = "update issue_book set Status = ? where issue_id = ?";
-        $stmt = $db -> prepare($query);
-        $stmt -> execute([$_POST['status'], $_POST['bissue_id']]);
+
+            $query  = "update issue_book set Status = ? where issue_id = ?";
+            $stmt = $db -> prepare($query);
+            $stmt -> execute([$_POST['status'], $_POST['bissue_id']]);
+
+        if( ($_POST['status'] == 'Returned') ){
+            $query2 = "update books set copies = copies + 1 where isbn = ?";
+            $stmt2 = $db -> prepare($query2);
+            $stmt2 -> execute([$_POST['b_isbn']]);
+        }
 
         header("Location:../dboard/issue.php");
     }

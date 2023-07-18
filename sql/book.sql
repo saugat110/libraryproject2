@@ -88,12 +88,13 @@ DELIMITER ;
 CREATE TABLE issue_book (
     issue_id INT NOT NULL AUTO_INCREMENT,
     Book VARCHAR(70) NOT NULL,
+    ISBN varchar(30) not null,
     Student VARCHAR(50) NOT NULL,
     Faculty ENUM ('BCA', 'BBS', 'BSW') NOT NULL,
     Issue_date DATE NOT NULL,
     Expected_return DATE NOT NULL,
     Status ENUM('Issued', 'Returned', 'Not returned'),
-    CONSTRAINT primary_key_issue_id PRIMARY KEY (issue_id)
+    CONSTRAINT PRIMARY KEY (issue_id)
 );
 
 desc issue_book;

@@ -177,10 +177,11 @@ $(document).ready(function(){
 
 
 
-function updateform(id){ //from search
+function updateform(id, isbn){ //from search
     document.querySelector('.update_form').style.display = 'block';
     document.getElementById('bissue_id').value = id;
-    console.log(id);
+    document.getElementById('b_isbn').value = isbn;
+    // console.log(id);
     document.querySelector('.hideall').style.display = 'block';
 }
 

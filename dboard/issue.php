@@ -6,6 +6,10 @@ if (!isset($_SESSION['admin_id'])) {
     header('Location:../error/error.php');
 }
 
+$query3 = "delete from issue_book where Status = 'Returned'";
+$stmt3 = $db ->prepare($query3);
+$stmt3 -> execute([]);
+
 $query2 = "UPDATE issue_book SET Status = 'Not returned' WHERE Expected_return < CURDATE();";
 $stmt2 = $db -> prepare($query2);
 $stmt2 -> execute([]);
@@ -75,7 +79,7 @@ $tdy = strtotime($tdy);
                         <td><?php echo $single['Expected_return']; ?></td>
                         <td><?php echo $single['Status']; ?> </td>
                         <td>
-                            <button type="button" onclick="updateform('<?php echo $single['issue_id'];?>')" id="search_edit_button">Edit</button>
+                            <button type="button" onclick="updateform('<?php echo $single['issue_id'];?>', '<?php echo $single['ISBN'];?>' )" id="search_edit_button">Edit</button>
                             <form action="../UD/delete.php" method="post">
                                 <input type="hidden" name="issue_id" value="<?php echo $single['issue_id']; ?>">
                                 <input type="submit" value="Delete" name="delete_issue_book">
@@ -103,6 +107,7 @@ $tdy = strtotime($tdy);
                     <option value="Not returned">Not returned</option>
                 </select>  <br>     
                 <input type="hidden" name="bissue_id" id="bissue_id"><br>
+                <input type="hidden" name="b_isbn" id="b_isbn">
                 <input type="submit" value="Save" name="update_issue_book">
                 <button type="button" onclick="close_update()">Close</button>
             </form>
