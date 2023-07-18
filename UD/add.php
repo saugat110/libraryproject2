@@ -244,10 +244,10 @@
 
         $today = date("Y-m-d");
 
-        $main_query = "insert into issue_book (Book, ISBN, Student, Faculty, Issue_date, Expected_return, Status )
-        values (?,?,?,?,?,?,?)";
+        $main_query = "insert into issue_book (Book, ISBN, Student, roll, Faculty, Issue_date, Expected_return, Status )
+        values (?,?,?,?,?,?,?,?)";
         $stmt_main = $db -> prepare($main_query);
-        $stmt_main -> execute([ $result['name'], $_POST['isbn'], $result2['fname'], $result2['faculty'], $today, $_POST['erdate'], $_POST['status']]);
+        $stmt_main -> execute([ $result['name'], $_POST['isbn'], $result2['fname'], $_POST['sroll'], $result2['faculty'], $today, $_POST['erdate'], $_POST['status']]);
         
 
         header('Location:../dboard/issue.php');

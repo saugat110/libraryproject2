@@ -7,7 +7,7 @@ if( !isset($_POST['sl']) && !isset($_POST['al']) ){
 $_SESSION['refered_from_login_validate']=1;
 
 error_reporting(E_ALL);
-// ini_set('display_errors', 1);
+ini_set('display_errors', 1);
 
 require_once ('connection.php');
 
@@ -27,7 +27,7 @@ if(isset($_POST['sl'])){   //for student form
     $student_found=0;
     $student_password_matched=0;
 
-   $query1="select s_id, email, fname, password from student";
+   $query1="select s_id, roll, email, fname, password from student";
    $result=$db->query($query1);
    $result=$result->fetchAll(PDO::FETCH_ASSOC);
    
@@ -60,8 +60,10 @@ if(isset($_POST['sl'])){   //for student form
           unset($_SESSION['email'], $_SESSION['password'], $_SESSION['student_pword_reset_id'], $_SESSION['student_pword_reset_email'], $_SESSION['student_pword_reset_name'],$_SESSION['visited_forgot_password']);
           $db=null;
           $_SESSION['student_id']=$single['s_id'];
-       //    echo $_SESSION['student_id'];
-          header('Location:user_dash.php');
+          $_SESSION['user_dash_rolll'] = $single['roll'];
+          $_SESSION['user_dash_email']=$single['email'];
+       //    echo $_SESSION['user_dash_rolll'];
+          header('Location:../user/user_search_book.php');
    }
    unset($single);
 

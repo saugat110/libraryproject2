@@ -1,0 +1,57 @@
+.content p{
+    color:green;
+    /* color:rgb(116, 109, 109); */
+    margin-bottom: 13px;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+#edit_title{
+    font-size: 27px;
+    margin-top:11px;
+}
+
+label{
+    font-size: 13px;
+    margin-bottom: 3px;
+    display: block;
+}
+
+input[type="text"], input[type = "email"], select{
+    width: 410px;
+    height: 20px;
+    margin-bottom: 13px;
+    border:1px solid black;
+    border-radius: 3px;
+    padding-left: 7px;
+}
+select{
+    /* background-color: ; */
+    width: 420px;
+    height: 23px;
+}
+
+input[type = "submit"]{
+    width: 70px;
+    height: 30px;
+    background-color: green;
+    color: white;
+    border:0px;
+    border-radius: 7px;
+}
+
+#message{
+    position: absolute;
+    right:153px;
+    top:149px;
+    color:green;
+    font-size: 27px;
+    background-color: rgba(0, 128, 0, 0.283);
+    width: 270px;
+    padding:10px 20px;
+    border:1px solid green;
+    text-align: center;
+    border-radius: 7px;
+}

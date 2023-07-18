@@ -90,6 +90,7 @@ CREATE TABLE issue_book (
     Book VARCHAR(70) NOT NULL,
     ISBN varchar(30) not null,
     Student VARCHAR(50) NOT NULL,
+    roll varchar(4) not null,
     Faculty ENUM ('BCA', 'BBS', 'BSW') NOT NULL,
     Issue_date DATE NOT NULL,
     Expected_return DATE NOT NULL,
@@ -98,6 +99,8 @@ CREATE TABLE issue_book (
 );
 
 desc issue_book;
+
+desc student;
 
 
 

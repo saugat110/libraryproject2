@@ -6,7 +6,7 @@ if(isset($_SESSION['admin_id'])){
     header('Location:dboard/dashboard.php');
 }
 if(isset($_SESSION['student_id'])){
-    header('Location:login/user_dash.php');
+    header('Location:user/user_search_book.php');
 }
 
 

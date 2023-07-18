@@ -236,6 +236,29 @@ error_reporting(E_ALL);
         }
 
         header("Location:../dboard/issue.php");
+    }else if(isset($_POST['update_user_info'])){
+
+        $query = "update student set fname=?, lname=?, email=?, phone=?, faculty =? , address =?, password = ?, roll =?
+            where s_id = ?";
+            $stmt = $db -> prepare($query);
+            $stmt -> execute([
+                $_POST['fname'],
+                $_POST['lname'],
+                $_POST['email'],
+                $_POST['phone'],
+                $_POST['faculty'],
+                $_POST['address'],
+                $_POST['password'],
+                $_POST['roll'],
+                $_POST['sid']
+            ]);
+            $_SESSION['user_updated'] = 1;
+
+            $query2 = "update issue_book set Faculty = ? where roll = ?";
+            $stmt2 = $db -> prepare($query2);
+            $stmt2 -> execute([$_POST['faculty'], $_POST['roll']]);
+            
+            header("Location:../user/edit_user_info.php");
     }
 
 
