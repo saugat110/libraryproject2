@@ -145,3 +145,44 @@ function error_update_form(){
     });
 
   });
+
+
+  $('#inum').keyup(function(){
+    var inum = $('#inum').val();
+    inum = $.trim(inum);
+    
+    if(inum == ''){
+        $('#emessage3').html("");
+        $('#save').prop('disabled', false);
+    }
+    
+    
+        if( (inum != '') ){
+            $.ajax({
+                url:'bookadd_dat.php',
+                method:'POST',
+                dataType:'json',
+                data:{input:inum},
+
+                success:function(response){
+                    // console.log('hello');
+                    if( (!response.inum) ){
+                        $('#save').prop('disabled', false);
+                        $('#save').css("background-color", "rgb(141, 210, 37)");
+                    }else{
+                        $('#save').prop('disabled', true);
+                        $('#save').css("background-color", "rgba(216, 214, 214, 0.593)");
+                    }
+
+                    if( (response.inum) && (inum != '')){
+                        $('#emessage3').html("Book already exists");
+                    }else{
+                        $('#emessage3').html("");
+                    }
+                   console.log(response);
+                }
+            });
+    }else{
+        // $('#emessage1').html("");
+    }
+});

@@ -186,8 +186,9 @@ $rack_result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <label>Enter book name:</label>
                 <input type="text" name="book_name" required  value="<?php echo (isset($_SESSION['book_name']) )?$_SESSION['book_name']:'';?>" ><br>
 
+                <p id="emessage3"></p>
                 <label for="">Enter ISBN number:</label>
-                <input type="text" name="isbn" required value="<?php echo (isset($_SESSION['isbn']) )?$_SESSION['isbn']:'';?>" ><br>
+                <input type="text" name="isbn" required value="<?php echo (isset($_SESSION['isbn']) )?$_SESSION['isbn']:'';?>" id="inum"><br>
 
                 <label for="">Enter no of copies:</label>
                 <input type="number" name="copies" min="1" required  value="<?php echo (isset($_SESSION['copies']) )?$_SESSION['copies']:'';?>" ><br>
@@ -216,7 +217,7 @@ $rack_result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <label for="">Upload image:</label>
                 <input type="file" name="imgfile">
 
-                <input type="submit" value="Save" name="add_book_form">
+                <input type="submit" value="Save" name="add_book_form" id="save">
                 <button type="button" onclick="close_add()">Close</button>
 
             </form>
