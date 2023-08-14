@@ -114,7 +114,6 @@ $(document).ready(function(){
                     success:function(response){
                         // console.log('hello');
                         if( (response.roll) && (response.isbn) ){
-                            // console.log('fuck u');
                             $('#save').prop('disabled', false);
                             $('#save').css("background-color", "rgb(141, 210, 37)");
                         }else{

@@ -1,7 +1,7 @@
 <?php
-ini_set('display_errors', 0);
-error_reporting(0);
-    if(isset($_POST['input'])){
+ini_set('display_errors', 1);
+error_reporting(1);
+    // if(isset($_POST['input'])){
         require_once '../config/connection.php';
 
         $query = "select * from issue_book where lower(book) like concat(:search, '%') or lower(Student) like concat(:search, '%') or lower(Faculty) like concat(:search, '%') or Issue_date like concat(:search, '%') or Expected_return like concat(:search, '%') or lower(Status) like concat(:search, '%')";
@@ -51,4 +51,4 @@ error_reporting(0);
         }
 
 
-    }
+    // }

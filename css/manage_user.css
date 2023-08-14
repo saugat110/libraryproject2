@@ -53,6 +53,7 @@ body{
     /* padding-left:9px; */
     text-align: center;
     width: 119px;
+    min-width: 119px;
     max-width: 119px;
 }
 
@@ -92,6 +93,37 @@ body{
     width: 227px; /*321*/
     max-width: 227px;
     word-wrap: break-word;
+}
+
+#result_table th:nth-of-type(2), #default_table th:nth-of-type(2){ /*second column*/
+    min-width:119px;
+    max-width: 119px;
+    word-wrap: break-word;
+    box-sizing: border-box;
+}
+#result_table th:nth-of-type(4), #default_table th:nth-of-type(4){ /*second column*/
+    min-width:227px;
+    max-width: 227px;
+    word-wrap: break-word;
+    box-sizing: border-box;
+}
+#result_table th:nth-of-type(5), #default_table th:nth-of-type(5){ /*second column*/
+    min-width:99px;
+    max-width: 99px;
+    word-wrap: break-word;
+    box-sizing: border-box;
+}
+#result_table th:nth-of-type(6), #default_table th:nth-of-type(6){ /*second column*/
+    min-width:135px;
+    max-width: 135px;
+    word-wrap: break-word;
+    box-sizing: border-box;
+}
+#result_table th:nth-of-type(7), #default_table th:nth-of-type(7){ /*second column*/
+    min-width:135px;
+    max-width: 135px;
+    word-wrap: break-word;
+    box-sizing: border-box;
 }
 
 #result_table td:nth-of-type(5), #default_table td:nth-of-type(5){ /*second column*/

@@ -41,7 +41,7 @@ $admin_password_not_matched=(isset($_GET['apnm']))?$_GET['apnm']:'';
         </div>
 
         <div class="library">
-            <h1><span class="header">Library</span><br> Management System</h1>
+            <h1><span class="header">Mini Library</span><br> Management System</h1>
         </div>
 
         <p id="form_title"><span id="span1">Student</span> <span id="span2"> Login</span></p>

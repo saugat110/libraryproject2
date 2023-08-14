@@ -48,8 +48,8 @@ body{
 #result_table th:last-child, #default_table th:last-child{
     box-sizing: border-box;
     border-top-right-radius: 7px;
-    width:201px;
-    padding-left:73px;
+    /* width:201px; */
+    /* padding-left:73px; */
 }
 
 
@@ -69,10 +69,18 @@ body{
     min-width: 729px;
 }
 
-#result_table th:nth-of-type(3), #result_table td:nth-of-type(3), #default_table th:nth-of-type(3), #default_table td:nth-of-type(3){ /*second column*/
+#result_table td:nth-of-type(3), #default_table td:nth-of-type(3){ /*second column*/
     text-align: left;
     width: fit-content;
     padding-right: 21px;
+    width:196.617px;
+    max-width:196.617px;
+    min-width:196.617px;
+    box-sizing: border-box;
+}
+#result_table th:nth-of-type(3), #default_table th:nth-of-type(3){
+    padding-left:17px;
+    padding-right:21px;
 }
 
 

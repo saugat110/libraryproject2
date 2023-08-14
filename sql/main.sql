@@ -55,3 +55,15 @@ create table books(
 	imgname varchar(30) default '',
 	constraint primary key (b_id)
 );
+
+create table issue_book(
+	issue_id int not null auto_increment,
+	Book varchar(70) not null,
+	Student varchar(50) not null,
+    Roll varchar(4) not null,
+	Issue_date varchar(10) not null,
+	Expected_return varchar(10) not null,
+	Returned_date varchar(10) default '----------' not null,
+ 	Status enum('Issued', 'Returned', 'Not returned'),
+	constraint primary key(issue_id),
+);

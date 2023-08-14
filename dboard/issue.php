@@ -19,6 +19,7 @@ $stmt2 -> execute([]);
 $query = "select * from issue_book order by issue_id desc";
 $stmt = $db->prepare($query);
 $stmt->execute();
+$rcount = $stmt -> rowCount();
 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 // $tdy = date('Y-m-d');
@@ -58,7 +59,8 @@ $tdy = strtotime($tdy);
 
 
             <div class="search_result"></div> <!-- search table -->
-
+            
+            <?php if($rcount > 0){ ?>
 
             <table id="default_table"> <!-- default table-->
                 <tr>
@@ -91,7 +93,7 @@ $tdy = strtotime($tdy);
                 <?php } ?>
             </table>
 
-
+            <?php } ?>
 
 
         </div>

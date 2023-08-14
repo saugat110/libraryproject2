@@ -11,6 +11,7 @@ if (!isset($_SESSION['admin_id'])) {
 $query = "select * from rack order by rack_id desc";
 $stmt = $db->prepare($query);
 $stmt->execute();
+$rcount = $stmt -> rowCount();
 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
@@ -45,6 +46,7 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
             <div class="search_result"></div> <!-- search table -->
 
+            <?php if($rcount > 0) {?>
 
             <table id="default_table"> <!-- default table-->
                 <tr>
@@ -68,7 +70,7 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </table>
 
 
-
+            <?php } ?>
 
         </div>
 
