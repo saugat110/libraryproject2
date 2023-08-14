@@ -11,6 +11,18 @@ error_reporting(0);
         // echo $id;
         // echo $name;
 
+        $query2 = "select Name from category where category_id = ?";
+        $stmt2 = $db -> prepare($query2);
+        $stmt2 -> execute([$_POST['cat_id']]);
+
+        $n = $stmt2 -> fetch(PDO::FETCH_ASSOC);
+        // echo $n['Name'];
+
+        $query3 = "update books set category = ? where category = ?";
+        $stmt3 = $db -> prepare($query3);
+        $stmt3 -> execute([$_POST['name'], $n['Name']]);
+
+
         $query = "update category set Name = :name where category_id = :id";
         $stmt = $db -> prepare($query);
         $stmt -> execute([':name' => $name, ':id' => $id]);
@@ -23,9 +35,22 @@ error_reporting(0);
         // echo $id;
         // echo $name;
 
+        $query2 = "select Name from author where auth_id = ?";
+        $stmt2 = $db -> prepare($query2);
+        $stmt2 -> execute([$_POST['auth_id']]);
+
+        $n = $stmt2 -> fetch(PDO::FETCH_ASSOC);
+        // echo $n['Name'];
+
+        $query3 = "update books set author = ? where author = ?";
+        $stmt3 = $db -> prepare($query3);
+        $stmt3 -> execute([$_POST['auth_name'], $n['Name']]);
+
         $query = "update author set Name = :name where auth_id = :id";
         $stmt = $db -> prepare($query);
         $stmt -> execute([':name' => $name, ':id' => $id]);
+
+
         header('Location:../dboard/author.php');
 
 
@@ -35,6 +60,18 @@ error_reporting(0);
 
         // echo $id;
         // echo $name;
+
+        $query2 = "select Name from rack where rack_id = ?";
+        $stmt2 = $db -> prepare($query2);
+        $stmt2 -> execute([$_POST['rack_id']]);
+
+        $n = $stmt2 -> fetch(PDO::FETCH_ASSOC);
+        // echo $n['Name'];
+
+        $query3 = "update books set rack = ? where rack = ?";
+        $stmt3 = $db -> prepare($query3);
+        $stmt3 -> execute([$_POST['rack_name'], $n['Name']]);
+
 
         $query = "update rack set Name = :name where rack_id = :id";
         $stmt = $db -> prepare($query);
@@ -100,6 +137,7 @@ error_reporting(0);
                 if(!empty($_FILES['imgfile']['tmp_name'])){
                     if( ($this -> check_if_image()) && ($this -> check_size()) && ($this -> check_extension()) ){
                         try{
+                            
                             $query = "update books set name = ?, isbn = ?, author =?, category = ?, rack = ?, copies = ? where b_id = ?";
                             $stmt = $this -> conn -> prepare($query);
                             $stmt -> execute([ $_POST['book_name'], $_POST['isbn'], $_POST['author_name'], $_POST['category_name'], $_POST['rack_name'], $_POST['copies'], $_POST['b_idd']]);
@@ -119,6 +157,17 @@ error_reporting(0);
                     }
                 }else{
                     try{
+
+                        $query2 = "select name from books where b_id = ?";
+                        $stmt2  = $this -> conn -> prepare($query2);
+                        $stmt2 -> execute([$_POST['b_idd']]);
+                        $n = $stmt2 -> fetch(PDO::FETCH_ASSOC);
+
+                        $query3 = "update issue_book set Book = ? where Book = ?";
+                        $stmt3  = $this -> conn -> prepare($query3);
+                        $stmt3 -> execute([$_POST['book_name'],$n['name']]);
+
+
                         $query = "update books set name = ?, isbn = ?, author =?, category = ?, rack = ?, copies = ? where b_id = ?";
                         $stmt = $this -> conn -> prepare($query);
                         $stmt -> execute([ $_POST['book_name'], $_POST['isbn'], $_POST['author_name'], $_POST['category_name'], $_POST['rack_name'], $_POST['copies'], $_POST['b_idd']]);

@@ -53,7 +53,7 @@ $result = $stmt -> fetchAll(PDO::FETCH_ASSOC);
                         <?php $stmt2 = $db ->prepare($query2); ?>
                         <?php $stmt2 -> execute([$single['ISBN']]); ?>
                         <?php $result2 = $stmt2 -> fetch(PDO::FETCH_ASSOC); ?>
-                        <td class="image_cell"><img src="../images/books/<?php echo $result2['imgname']; ?>" alt=""></td>
+                        <td class="image_cell"><img src="../images/books/<?php echo $result2['imgname'].'?v='.uniqid(); ?>" alt=""></td>
                         <td><?php echo $single['Book']; ?></td>
                         <td><?php echo $single['Expected_return']; ?></td>
                     </tr>
