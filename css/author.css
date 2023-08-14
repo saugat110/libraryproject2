@@ -225,6 +225,7 @@ body{
 .addform p{
     font-size: 23px;
     margin-left: 9px;
+    margin-bottom: 5px;
 }
 
 .addform form input[type="text"]{
@@ -258,6 +259,15 @@ body{
 .addform form button{
     background-color: red;
     margin-left: 13px;
+}
+
+
+#emessage{
+    font-size: 13px;
+    color:red;
+    margin:0px;
+    margin-left:8px;
+    min-height: 15.433px;
 }
 
 

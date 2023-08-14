@@ -55,3 +55,44 @@ function close_add(){
     document.querySelector('.addform').style.display = 'none';
     document.querySelector('.hideall').style.display = 'none';
 }
+
+
+$('#aname').keyup(function(){
+    var aname = $('#aname').val();
+    aname = $.trim(aname);
+    
+    if(aname == ''){
+        $('#emessage').html("");
+        $('#save').prop('disabled', false);
+    }
+    
+    
+        if( (aname != '') ){
+            $.ajax({
+                url:'auth_dat.php',
+                method:'POST',
+                dataType:'json',
+                data:{input:aname},
+
+                success:function(response){
+                    // console.log('hello');
+                    if( (!response.aname) ){
+                        $('#save').prop('disabled', false);
+                        $('#save').css("background-color", "rgb(141, 210, 37)");
+                    }else{
+                        $('#save').prop('disabled', true);
+                        $('#save').css("background-color", "rgba(216, 214, 214, 0.593)");
+                    }
+
+                    if( (response.aname) && (aname != '')){
+                        $('#emessage').html("Author already exists");
+                    }else{
+                        $('#emessage').html("");
+                    }
+                   console.log(response);
+                }
+            });
+    }else{
+        // $('#emessage1').html("");
+    }
+});

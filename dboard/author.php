@@ -91,10 +91,11 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         <div class="addform"> <!--add author form-->
             <p>Add Author</p>
+            <span id="emessage"></span>
             <form action="../UD/add.php" method="post">
                 <label>Enter author name:</label>
-                <input type="text" name="name"><br>
-                <input type="submit" value="Save" name="add_author_form">
+                <input type="text" name="name" id="aname"><br>
+                <input type="submit" value="Save" name="add_author_form" id="save">
                 <button type="button" onclick="close_add()">Close</button>
             </form>
         </div>
