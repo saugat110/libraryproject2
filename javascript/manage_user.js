@@ -64,3 +64,48 @@ $(document).ready(function(){
         }
     });
 });
+
+
+$(document).ready(function(){
+
+
+    $('#roll_enter').keyup(function(){
+        var roll = $('#roll_enter').val();
+        roll = $.trim(roll);
+        
+        if(roll == ''){
+            $('#emessage2').html("");
+        }
+        
+        
+            if( (roll != '') ){
+                $.ajax({
+                    url:'roll_dat.php',
+                    method:'POST',
+                    dataType:'json',
+                    data:{input:roll},
+
+                    success:function(response){
+                        // console.log('hello');
+                        if( (!response.roll) ){
+                            $('#save').prop('disabled', false);
+                            $('#save').css("background-color", "rgb(141, 210, 37)");
+                        }else{
+                            $('#save').prop('disabled', true);
+                            $('#save').css("background-color", "rgba(216, 214, 214, 0.593)");
+                        }
+
+                        if( (response.roll) && (roll != '')){
+                            $('#emessage2').html("Student already exists");
+                        }else{
+                            $('#emessage2').html("");
+                        }
+                       console.log(response);
+                    }
+                });
+        }else{
+            // $('#emessage1').html("");
+        }
+    });
+
+});

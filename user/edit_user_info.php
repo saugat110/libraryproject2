@@ -53,8 +53,9 @@ $result = $stmt -> fetch(PDO::FETCH_ASSOC);
                 <label>Enter phone:</label>
                 <input type="text" name="phone" value="<?php echo $result['phone'];?>"><br>
 
-                <label>Enter roll:</label>
-                <input type="text" name="roll" value="<?php echo $result['roll'];?>"><br>
+                <label>Roll:</label>
+                <input type="text" name="roll" value="<?php echo $result['roll'];?>" disabled><br>
+                <input type="hidden" name="hidden_roll" value="<?php echo $result['roll'];?>">
 
                 <label>Choose faculty:</label>
                 <select name="faculty"><br>

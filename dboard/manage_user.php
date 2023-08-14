@@ -111,10 +111,11 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <input type="text" name="phone" required  value="<?php echo (isset($_SESSION['phone']))?$_SESSION['phone']:'';?>" ><br>
                 <label>Enter address:</label>
                 <input type="text" name="address" required  value="<?php echo (isset($_SESSION['address']))?$_SESSION['address']:'';?>" ><br>
+                <p id="emessage2"></p>
                 <label>Enter roll number:</label>
-                <input type="number" name="roll" required value="<?php echo (isset($_SESSION['roll']))?$_SESSION['roll']:'';?>" min="0" ><br>
+                <input type="number" name="roll" required value="<?php echo (isset($_SESSION['roll']))?$_SESSION['roll']:'';?>" min="0" id="roll_enter"><br>
                 
-                <input type="submit" value="Save" name="add_student_form">
+                <input type="submit" value="Save" name="add_student_form" id="save">
                 <button type="button" onclick="close_add()">Close</button>
             </form>
         </div>
