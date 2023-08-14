@@ -55,3 +55,49 @@ function close_add(){
     document.querySelector('.addform').style.display = 'none';
     document.querySelector('.hideall').style.display = 'none';
 }
+
+
+$(document).ready(function(){
+
+
+    $('#catname').keyup(function(){
+        var cname = $('#catname').val();
+        cname = $.trim(cname);
+        
+        if(cname == ''){
+            $('#emessage').html("");
+            $('#save').prop('disabled', false);
+        }
+        
+        
+            if( (cname != '') ){
+                $.ajax({
+                    url:'category_dat.php',
+                    method:'POST',
+                    dataType:'json',
+                    data:{input:cname},
+
+                    success:function(response){
+                        // console.log('hello');
+                        if( (!response.cname) ){
+                            $('#save').prop('disabled', false);
+                            $('#save').css("background-color", "rgb(141, 210, 37)");
+                        }else{
+                            $('#save').prop('disabled', true);
+                            $('#save').css("background-color", "rgba(216, 214, 214, 0.593)");
+                        }
+
+                        if( (response.cname) && (cname != '')){
+                            $('#emessage').html("Category already exists");
+                        }else{
+                            $('#emessage').html("");
+                        }
+                       console.log(response);
+                    }
+                });
+        }else{
+            // $('#emessage1').html("");
+        }
+    });
+
+});

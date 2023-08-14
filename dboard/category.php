@@ -77,17 +77,18 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <label>Edit category name:</label>
                 <input type="text" id="cato_name" name="name"><br>
                 <input type="hidden" name="cat_id" id="cato_id"><br>
-                <input type="submit" value="Save" name="update_category_form">
+                <input type="submit" value="Save" name="update_category_form" >
                 <button type="button" onclick="close_update()">Close</button>
             </form>
         </div>
 
         <div class="addform">
             <p>Add Category</p>
+            <span id="emessage"></span>
             <form action="../UD/add.php" method="post">
                 <label>Add category name:</label>
-                <input type="text" name="name"><br>
-                <input type="submit" value="Save" name="add_category_form">
+                <input type="text" name="name" id="catname"><br>
+                <input type="submit" value="Save" name="add_category_form" id="save">
                 <button type="button" onclick="close_add()">Close</button>
             </form>
         </div>
